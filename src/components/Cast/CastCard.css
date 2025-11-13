@@ -1,0 +1,26 @@
+.cast-card{
+  background:var(--card);
+  padding:8px;
+  border-radius:8px;
+  text-align:center;
+  transition:transform .12s ease;
+}
+.cast-photo{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:6px;
+  background:linear-gradient(90deg,#111,#222);
+}
+.cast-name{font-weight:700;margin:8px 0 4px;font-size:0.9rem}
+.cast-role{font-size:0.83rem;color:var(--muted)}
+
+@media (min-width:801px){
+  .cast-card:hover{transform:translateY(-6px)}
+}
+
+@media (max-width:420px){
+  .cast-photo{height:110px}
+  .cast-name{font-size:0.85rem}
+  .cast-role{font-size:0.8rem}
+}

@@ -1,0 +1,22 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+  align-items: center;
+  padding-bottom: 54px;
+  margin-top: 40px;
+}
+.page-btn {
+  border-radius: 8px;
+  padding: 8px 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+}
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

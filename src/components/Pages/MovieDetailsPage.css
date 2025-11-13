@@ -1,0 +1,125 @@
+.details-wrap {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 18px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55));
+}
+
+.details-poster {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.details-info {
+  padding: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(0, 0, 0, 0.22)
+  );
+  border-radius: 8px;
+}
+
+.movie-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.badge {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.details-wrap[style] {
+  position: relative;
+  overflow: hidden;
+}
+.details-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.details-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+
+.details-info img {
+  max-height: 36px;
+  vertical-align: middle;
+}
+
+section h2 {
+  margin-top: 18px;
+}
+
+.back-btn {
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: background 0.25s ease;
+}
+
+
+@media (max-width: 480px) {
+  .back-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .details-wrap {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+  .details-poster {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+  }
+  .details-info {
+    margin-top: 6px;
+  }
+  .details-wrap::after {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.25)
+    );
+  }
+}
+
+@media (max-width: 480px) {
+  .details-info {
+    padding: 10px;
+  }
+  .movie-badges {
+    gap: 8px;
+  }
+  .badge {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+}
