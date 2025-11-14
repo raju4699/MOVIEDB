@@ -12,22 +12,26 @@ export default function Popular() {
   const [err, setErr] = useState(null)
 
   useEffect(() => {
-    setLoading(true)
-    setErr(null)
-    fetch(
-      `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`,
-    )
-      .then(r => r.json())
-      .then(data => {
-        if (data?.results) {
+    const fetchPopular = async () => {
+      try {
+        setLoading(true)
+        setErr(null)
+        const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+        const response = await fetch(url)
+        const data = await response.json()
+        if (data && Array.isArray(data.results)) {
           setMovies(data.results)
-          setTotalPages(Math.min(data.total_pages || 1, 500))
+          setTotalPages(data.total_pages || 1)
         } else {
           setErr('Unexpected response')
         }
-      })
-      .catch(e => setErr(e.message || 'Failed to fetch'))
-      .finally(() => setLoading(false))
+      } catch (error) {
+        setErr(error.message || 'Failed to fetch')
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchPopular()
   }, [page])
 
   return (
